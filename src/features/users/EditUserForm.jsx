@@ -25,11 +25,11 @@ const EditUserForm = ({ user }) => {
 
   const navigate = useNavigate()
 
-  const [username, setUsername] = useState('')
+  const [username, setUsername] = useState(user.username)
   const [validUsername, setValidUsername] = useState(false)
   const [password, setPassword] = useState('')
   const [validPassword, setValidPassword] = useState(false)
-  const [roles, setRoles] = useState(['Employee'])
+  const [roles, setRoles] = useState(user.roles)
   const [active, setActive] = useState(user.active)
 
   useEffect(() => {
@@ -93,8 +93,8 @@ const EditUserForm = ({ user }) => {
 
   const errClass = isError ? 'errmsg' : 'offscreen'
   const validUserClass =!validUsername ? 'form__input--incomplete' : ''
-  const validPwdClass =!validPassword ? 'form__input--incomplete' : ''
-  const validRolesClass = roles ? 'form__input--incomplete' : ''
+  const validPwdClass = password && !validPassword ? 'form__input--incomplete' : ''
+  const validRolesClass = !roles ? 'form__input--incomplete' : ''
 
   const errContent = (error?.data?.message || delError?.data?.mmessage) ?? ''
 

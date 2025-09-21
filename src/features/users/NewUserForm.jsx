@@ -78,7 +78,7 @@ const NewUserForm = () => {
 
   const content = (
     <>
-      <p className={errClass}>{err?.data?.message}</p>
+      <p className={errClass}>{error?.data?.message}</p>
 
       <form className="form" onSubmit={onSaveUserClicked}>
         <div className="form__title-row">
